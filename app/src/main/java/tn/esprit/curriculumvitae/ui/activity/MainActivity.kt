@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.app_bar)
         setSupportActionBar(toolbar)
 
-        title = "Your Resume"
+        supportActionBar?.title = "Your Resume"
 
         profilePic = findViewById(R.id.profilePic)
         txtFullName = findViewById(R.id.txtFullName)
