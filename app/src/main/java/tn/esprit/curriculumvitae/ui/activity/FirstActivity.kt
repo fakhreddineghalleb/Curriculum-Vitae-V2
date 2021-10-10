@@ -99,6 +99,7 @@ class FirstActivity : AppCompatActivity() {
                         putExtra(GENDER, rbFemale!!.text.toString())
                 }
                 startActivity(mainIntent)
+                finish()
             }else{
                 Toast.makeText(this, "Please select an image !", Toast.LENGTH_SHORT).show()
             }

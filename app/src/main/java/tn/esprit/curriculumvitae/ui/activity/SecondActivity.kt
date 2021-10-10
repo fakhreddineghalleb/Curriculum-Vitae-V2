@@ -105,7 +105,7 @@ class SecondActivity : AppCompatActivity() {
             }
 
             startActivity(mainIntent)
-
+            finish()
         }
     }
 }

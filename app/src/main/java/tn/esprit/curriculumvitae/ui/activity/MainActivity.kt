@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         when(item.itemId){
-            R.id.info -> {
+            R.id.infoMenu -> {
                 val aboutMeFragment = AboutMeFragment.newInstance(intent.getStringExtra(FULL_NAME).toString(),
                     intent.getStringExtra(AGE).toString(), intent.getStringExtra(GENDER).toString(),
                     intent.getStringExtra(EMAIL).toString())
