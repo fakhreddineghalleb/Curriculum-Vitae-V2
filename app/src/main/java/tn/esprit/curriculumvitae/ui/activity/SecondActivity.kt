@@ -1,4 +1,4 @@
-package tn.esprit.curriculumvitae
+package tn.esprit.curriculumvitae.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.CheckBox
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.slider.Slider
+import tn.esprit.curriculumvitae.R
 
 const val SKILL_ANDROID = "SKILL_ANDROID"
 const val SKILL_IOS = "SKILL_IOS"

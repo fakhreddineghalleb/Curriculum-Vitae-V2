@@ -13,17 +13,17 @@
         android:theme="@style/Theme.CurriculumVitae">
 
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.activity.MainActivity"
             android:theme="@style/Theme.CurriculumVitaeNoActionBar"
             android:exported="true" />
         <activity
-            android:name=".SecondActivity"
+            android:name=".ui.activity.SecondActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivityOld"
+            android:name=".ui.activity.MainActivityOld"
             android:exported="true" />
         <activity
-            android:name=".SplashScreenActivity"
+            android:name=".ui.activity.SplashScreenActivity"
             android:exported="true"
             android:theme="@style/SplashTheme">
             <intent-filter>
@@ -33,7 +33,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".FirstActivity"
+            android:name=".ui.activity.FirstActivity"
             android:exported="true" />
     </application>
 

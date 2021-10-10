@@ -1,10 +1,11 @@
-package tn.esprit.curriculumvitae
+package tn.esprit.curriculumvitae.ui.activity
 
 import android.net.Uri
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import tn.esprit.curriculumvitae.R
 
 class MainActivityOld : AppCompatActivity() {
 

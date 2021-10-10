@@ -1,4 +1,4 @@
-package tn.esprit.curriculumvitae
+package tn.esprit.curriculumvitae.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-
+import tn.esprit.curriculumvitae.R
+import tn.esprit.curriculumvitae.ui.activity.AGE
+import tn.esprit.curriculumvitae.ui.activity.EMAIL
+import tn.esprit.curriculumvitae.ui.activity.FULL_NAME
+import tn.esprit.curriculumvitae.ui.activity.GENDER
 
 class AboutMeFragment : Fragment() {
 
@@ -17,7 +21,7 @@ class AboutMeFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        var rootView :View = inflater.inflate(R.layout.fragment_about_me, container, false)
+        var rootView : View = inflater.inflate(R.layout.fragment_about_me, container, false)
 
         txtFullName = rootView.findViewById(R.id.txtFullName)
         txtAge = rootView.findViewById(R.id.txtAge)

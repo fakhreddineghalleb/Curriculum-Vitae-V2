@@ -1,4 +1,4 @@
-package tn.esprit.curriculumvitae
+package tn.esprit.curriculumvitae.ui.activity
 
 import android.app.Activity
 import android.content.Intent
@@ -14,6 +14,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import tn.esprit.curriculumvitae.R
 
 
 const val FULL_NAME = "FULL_NAME"

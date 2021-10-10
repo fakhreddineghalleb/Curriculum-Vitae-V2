@@ -1,4 +1,4 @@
-package tn.esprit.curriculumvitae
+package tn.esprit.curriculumvitae.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import androidx.fragment.app.Fragment
+import tn.esprit.curriculumvitae.ui.activity.IS_GAMES
+import tn.esprit.curriculumvitae.ui.activity.IS_MUSIC
+import tn.esprit.curriculumvitae.ui.activity.IS_SPORT
+import tn.esprit.curriculumvitae.R
 
 class HobbiesFragment : Fragment() {
 

@@ -1,4 +1,4 @@
-package tn.esprit.curriculumvitae
+package tn.esprit.curriculumvitae.ui.activity
 
 import android.net.Uri
 import android.os.Bundle
@@ -10,6 +10,11 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
+import tn.esprit.curriculumvitae.R
+import tn.esprit.curriculumvitae.ui.fragment.AboutMeFragment
+import tn.esprit.curriculumvitae.ui.fragment.HobbiesFragment
+import tn.esprit.curriculumvitae.ui.fragment.LanguageFragment
+import tn.esprit.curriculumvitae.ui.fragment.SkillsFragment
 
 class MainActivity : AppCompatActivity() {
 

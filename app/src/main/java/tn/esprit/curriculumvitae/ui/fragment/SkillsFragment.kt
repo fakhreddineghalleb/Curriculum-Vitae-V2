@@ -1,4 +1,4 @@
-package tn.esprit.curriculumvitae
+package tn.esprit.curriculumvitae.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.android.material.slider.Slider
+import tn.esprit.curriculumvitae.R
+import tn.esprit.curriculumvitae.ui.activity.SKILL_ANDROID
+import tn.esprit.curriculumvitae.ui.activity.SKILL_FLUTTER
+import tn.esprit.curriculumvitae.ui.activity.SKILL_IOS
 
 class SkillsFragment : Fragment() {
 
