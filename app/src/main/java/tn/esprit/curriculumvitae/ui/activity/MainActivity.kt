@@ -1,5 +1,6 @@
 package tn.esprit.curriculumvitae.ui.activity
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
@@ -26,6 +27,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnHobbies: Button
     private lateinit var btnLanguage: Button
 
+    private lateinit var btnMyCareer: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -33,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.app_bar)
         setSupportActionBar(toolbar)
 
-        title = "Your Resume"
+        supportActionBar?.title = "Your Resume"
 
         profilePic = findViewById(R.id.profilePic)
         txtFullName = findViewById(R.id.txtFullName)
@@ -43,10 +46,17 @@ class MainActivity : AppCompatActivity() {
         btnHobbies = findViewById(R.id.btnHobbies)
         btnLanguage = findViewById(R.id.btnLanguage)
 
+        btnMyCareer = findViewById(R.id.btnMyCareer)
+
         profilePic.setImageURI(Uri.parse(intent.extras!!.getString(IMAGE)))
 
         txtFullName.text = intent.getStringExtra(FULL_NAME).toString()
         txtEmail.text = intent.getStringExtra(EMAIL).toString()
+
+        btnMyCareer.setOnClickListener {
+            val intent = Intent(this, CareerActivity::class.java)
+            startActivity(intent)
+        }
 
         btnSkills.setOnClickListener {
             val skillsFragment = SkillsFragment.newInstance(intent.getFloatExtra(SKILL_ANDROID, 0.0F),
@@ -56,14 +66,18 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnHobbies.setOnClickListener {
-            val hobbiesFragment = HobbiesFragment.newInstance(intent.getBooleanExtra(IS_SPORT, false),
-                intent.getBooleanExtra(IS_MUSIC, false),intent.getBooleanExtra(IS_GAMES, false))
+            val hobbiesFragment = HobbiesFragment.newInstance(
+                intent.getBooleanExtra(IS_SPORT, false),
+                intent.getBooleanExtra(IS_MUSIC, false),
+                intent.getBooleanExtra(IS_GAMES, false))
             changeFragment(hobbiesFragment, "")
         }
 
         btnLanguage.setOnClickListener {
-            val languageFragment = LanguageFragment.newInstance(intent.getBooleanExtra(IS_ARABIC, false),
-                intent.getBooleanExtra(IS_FRENCH, false),intent.getBooleanExtra(IS_ENGLISH, false))
+            val languageFragment = LanguageFragment.newInstance(
+                intent.getBooleanExtra(IS_ARABIC, false),
+                intent.getBooleanExtra(IS_FRENCH, false),
+                intent.getBooleanExtra(IS_ENGLISH, false))
             changeFragment(languageFragment, "")
         }
 

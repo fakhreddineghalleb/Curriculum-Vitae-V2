@@ -80,7 +80,7 @@ class FirstActivity : AppCompatActivity() {
     }
 
     private fun openGallery(){
-        val intent = Intent(Intent.ACTION_GET_CONTENT)
+        val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
         intent.type = "image/*"
         startForResultOpenGallery.launch(intent)
     }

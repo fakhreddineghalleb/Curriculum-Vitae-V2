@@ -11,6 +11,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="colorPrimaryFade">#9949B692</color>
+    <color name="colorPrimaryFade">#00000000</color>
 
 </resources>
