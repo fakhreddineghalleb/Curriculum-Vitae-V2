@@ -1,13 +1,16 @@
 package tn.esprit.curriculumvitae.adapters
 
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import tn.esprit.curriculumvitae.R
 import tn.esprit.curriculumvitae.data.Education
+import tn.esprit.curriculumvitae.utils.AppDataBase
 
 class EducationAdapter(val educationList: MutableList<Education>) : RecyclerView.Adapter<EducationAdapter.EducationViewHolder>() {
 
@@ -21,17 +24,29 @@ class EducationAdapter(val educationList: MutableList<Education>) : RecyclerView
     }
 
     override fun onBindViewHolder(holder: EducationViewHolder, position: Int) {
-        val name = educationList[position].companyName
-        val logo = educationList[position].companyLogo
-        val address = educationList[position].companyAddress
-        val startDate = educationList[position].startDate
-        val endDate = educationList[position].endDate
+        val edc = educationList[position]
 
-        holder.companyLogo.setImageResource(logo)
-        holder.companyName.text = name
-        holder.companyAddress.text = address
-        holder.startDate.text = startDate
-        holder.endDate.text = endDate
+        holder.companyLogo.setImageURI(Uri.parse(edc.universityLogo))
+        holder.companyName.text = edc.universityName
+        holder.companyAddress.text = edc.universityAddress
+        holder.startDate.text = edc.startDate
+        holder.endDate.text = edc.endDate
+
+        holder.btnDelete.setOnClickListener {
+
+            AlertDialog.Builder(holder.itemView.context)
+                .setTitle("Delete Education")
+                .setMessage(holder.itemView.context.getString(R.string.deleteMessageUniv, edc.universityName))
+                .setPositiveButton("Yes"){ dialogInterface, which ->
+                    AppDataBase.getDatabase(holder.itemView.context).educationDao().delete(edc)
+                    educationList.removeAt(position)
+                    notifyDataSetChanged()
+
+            }.setNegativeButton("No"){dialogInterface, which ->
+                dialogInterface.dismiss()
+            }.create().show()
+
+        }
 
     }
 
@@ -43,5 +58,8 @@ class EducationAdapter(val educationList: MutableList<Education>) : RecyclerView
         val companyAddress = itemView.findViewById<TextView>(R.id.companyAddress)
         val startDate = itemView.findViewById<TextView>(R.id.startDate)
         val endDate = itemView.findViewById<TextView>(R.id.endDate)
+
+        val btnDelete = itemView.findViewById<ImageView>(R.id.btnDelete)
+
     }
 }

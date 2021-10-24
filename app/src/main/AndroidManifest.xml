@@ -12,9 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CurriculumVitae">
         <activity
-            android:name=".ui.activity.CareerActivity"
+            android:name=".ui.activity.AddEducationActivity"
+            android:exported="true"
+            android:theme="@style/Theme.CurriculumVitaeNoActionBar" />
+        <activity
+            android:name=".ui.activity.AddExperienceActivity"
             android:exported="true"
             android:theme="@style/Theme.CurriculumVitaeNoActionBar"/>
+        <activity
+            android:name=".ui.activity.CareerActivity"
+            android:exported="true"
+            android:theme="@style/Theme.CurriculumVitaeNoActionBar" />
         <activity
             android:name=".ui.activity.MainActivity"
             android:exported="true"

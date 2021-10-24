@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import tn.esprit.curriculumvitae.R
 import tn.esprit.curriculumvitae.adapters.EducationAdapter
 import tn.esprit.curriculumvitae.data.Education
+import tn.esprit.curriculumvitae.utils.AppDataBase
 
 class EducationFragment : Fragment() {
 
@@ -18,12 +19,17 @@ class EducationFragment : Fragment() {
 
     lateinit var educationList : MutableList<Education>
 
+    lateinit var dataBase: AppDataBase
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val rootView = inflater.inflate(R.layout.fragment_education, container, false)
 
+        dataBase = AppDataBase.getDatabase(requireActivity())
+
         educationRecyclerView = rootView.findViewById(R.id.recyclerEducation)
-        fillData()
+
+        educationList = dataBase.educationDao().getAllEducations()
 
         educationAdapter = EducationAdapter(educationList)
 
@@ -32,16 +38,6 @@ class EducationFragment : Fragment() {
         educationRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL ,false)
 
         return rootView
-    }
-
-    fun fillData(){
-        educationList = ArrayList()
-        educationList.add(Education(1,"MASSACHUSETTS", "UNITED STATES", "01/09/2020","TODAY",R.drawable.ic_logo_massachusetts))
-        educationList.add(Education(2,"OXFORD", "UNITED KINGDOM", "01/09/2018","31/08/2020",R.drawable.ic_logo_oxford))
-        educationList.add(Education(3,"STANFORD", "UNITED STATES", "01/09/2016","31/08/2018",R.drawable.ic_logo_stanford))
-        educationList.add(Education(4,"CAMBRIDGE", "UNITED KINGDOM", "01/09/2014","31/08/2016",R.drawable.ic_logo_cambridge))
-        educationList.add(Education(5,"HARVARD", "UNITED STATES", "01/09/2012","31/08/2014",R.drawable.ic_logo_harvard))
-        educationList.add(Education(6,"ESPRIT", "TUNISIA", "01/09/2009","31/08/2012",R.drawable.ic_logo_esprit))
     }
 
 }

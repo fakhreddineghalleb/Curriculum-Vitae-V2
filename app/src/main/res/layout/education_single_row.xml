@@ -70,12 +70,20 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimary"
                 android:layout_marginTop="10dp"
-                android:layout_gravity="end"
+                android:layout_gravity="start"
                 android:textStyle="bold"
                 android:text="COMPANY ADDRESS" />
 
         </LinearLayout>
 
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/btnDelete"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:layout_gravity="end|bottom"
+        android:src="@drawable/ic_delete"/>
 
 </androidx.cardview.widget.CardView>

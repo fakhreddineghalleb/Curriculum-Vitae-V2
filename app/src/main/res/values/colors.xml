@@ -12,5 +12,6 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="colorPrimaryFade">#00000000</color>
+    <color name="colorPrimaryFade2">#F149B692</color>
 
 </resources>

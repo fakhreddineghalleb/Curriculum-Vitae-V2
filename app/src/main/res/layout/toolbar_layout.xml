@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:navigationIcon="@drawable/ic_home"
-        app:menu="@menu/menu"
         app:title="@string/app_name"
         app:titleTextColor="@color/white"/>
 

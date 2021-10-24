@@ -1,6 +1,9 @@
 package tn.esprit.curriculumvitae.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -53,4 +56,26 @@ class CareerActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).addToBackStack("").commit()
 
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_add, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menuAddExp){
+            val addIntent: Intent = Intent(this, AddExperienceActivity::class.java)
+            startActivity(addIntent)
+        }else{
+            val addIntent: Intent = Intent(this, AddEducationActivity::class.java)
+            startActivity(addIntent)
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onResume() {
+        changeFragment(ExperienceFragment(), "")
+        super.onResume()
+    }
+
 }

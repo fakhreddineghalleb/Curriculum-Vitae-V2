@@ -1,12 +1,15 @@
 package tn.esprit.curriculumvitae.ui.activity
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import android.widget.CheckBox
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.slider.Slider
 import tn.esprit.curriculumvitae.R
+
+const val PREF_NAME = "DATA_CV_PREF"
 
 const val SKILL_ANDROID = "SKILL_ANDROID"
 const val SKILL_IOS = "SKILL_IOS"
@@ -39,6 +42,9 @@ class SecondActivity : AppCompatActivity() {
 
     private var btnSubmit : Button? = null
 
+    lateinit var mSharedPref: SharedPreferences
+    lateinit var cbRememberMe: CheckBox
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
@@ -58,8 +64,41 @@ class SecondActivity : AppCompatActivity() {
         cbGames = findViewById(R.id.cbGames)
 
         btnSubmit = findViewById(R.id.btnSubmit)
+        cbRememberMe = findViewById(R.id.cbRememberMe)
+
+        mSharedPref = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
 
         btnSubmit!!.setOnClickListener {
+
+            mSharedPref.edit().apply{
+                putString(FULL_NAME, intent.getStringExtra(FULL_NAME).toString())
+                putString(AGE, intent.getStringExtra(AGE).toString())
+                putString(EMAIL, intent.getStringExtra(EMAIL).toString())
+                putString(GENDER, intent.getStringExtra(GENDER).toString())
+
+                putFloat(SKILL_ANDROID, sliderAndroid!!.value)
+                putFloat(SKILL_IOS, sliderIos!!.value)
+                putFloat(SKILL_FLUTTER, sliderFlutter!!.value)
+
+                putString(IMAGE, intent.getStringExtra(IMAGE).toString())
+
+                putBoolean(IS_ARABIC, cbArabic!!.isChecked)
+                putBoolean(IS_ENGLISH, cbEnglish!!.isChecked)
+                putBoolean(IS_FRENCH, cbFrench!!.isChecked)
+
+                putBoolean(IS_MUSIC, cbMusic!!.isChecked)
+                putBoolean(IS_SPORT, cbSport!!.isChecked)
+                putBoolean(IS_GAMES, cbGames!!.isChecked)
+
+                putBoolean(IS_REMEMBRED, cbRememberMe.isChecked)
+
+            }.apply()
+
+            if (cbRememberMe.isChecked){
+                mSharedPref.edit().apply{
+                    putBoolean(IS_REMEMBRED, cbRememberMe.isChecked)
+                }.apply()
+            }
 
             val mainIntent = Intent(this, MainActivity::class.java).apply {
 
